@@ -68,13 +68,34 @@ header{
         box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
         @include flex;
         grid-area: d;
+        transition:transform 250ms ease-out;
         font-family: 'Poppins',sans-serif;
         img{
             width: 10%;
         }
-        h2{
-            font-weight: $light;
+       
 
+        .text{
+            @include flex;
+            flex-direction: column;
+            line-height: .8rem;
+            align-self: center;
+
+            h2{
+                font-weight: $light;
+                margin-bottom: 0rem;
+            }
+            h3{ 
+                text-align: right;
+                font-size: 1rem;
+                justify-self: center;
+                font-weight: $light;
+                margin-top: 0rem;
+            }
         }
+        
+    }
+    .credentials:hover{
+        transform:translateY(-.3rem);
     }
 }

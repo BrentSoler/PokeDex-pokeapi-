@@ -74,6 +74,10 @@ header #btn {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: d;
+  -webkit-transition: -webkit-transform 250ms ease-out;
+  transition: -webkit-transform 250ms ease-out;
+  transition: transform 250ms ease-out;
+  transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
   font-family: 'Poppins',sans-serif;
 }
 
@@ -81,7 +85,36 @@ header #btn {
   width: 10%;
 }
 
-.container .credentials h2 {
+.container .credentials .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap, 1rem);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: .8rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.container .credentials .text h2 {
   font-weight: 300;
+  margin-bottom: 0rem;
+}
+
+.container .credentials .text h3 {
+  text-align: right;
+  font-size: 1rem;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  font-weight: 300;
+  margin-top: 0rem;
+}
+
+.container .credentials:hover {
+  -webkit-transform: translateY(-0.3rem);
+          transform: translateY(-0.3rem);
 }
 /*# sourceMappingURL=main.css.map */

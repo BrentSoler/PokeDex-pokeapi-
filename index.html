@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filter Out</title>
+    <link rel="icon" href="/images/pokeball.png">
+    <title>PokeDex</title>
     <!-- STYLE -->
     <link rel="stylesheet" href="/apps/styles/css/main.css">
     <!-- FONTS -->
@@ -17,19 +18,24 @@
         <h2>Search PokeDex</h2>
         <div class="inputs">
         <input type="text" placeholder="Search for pokemon..." id="searchbar">
-        <button class='clickable' id ='btn'>Search</button>
+        <button class='clickable' id ='btn' onclick="searchFor()">Search</button>
         </div>
     </header>
 
-    <section class="mainSec"></section>
+    <section class="mainSec">
+    
+    </section>
     
     <template class="template">
         <div class="container">
-            <div class="credentials clickable" data-pokemon-id =''>
-                <img src="" alt="" class = 'pokeimg'>
-                <h2 class ="name"></h2>
+        <div class="credentials clickable" onclick="clickonPoke()">
+            <img src="" alt="" class = 'pokeimg'>
+            <div class="text">
+                <h2 class ="name">Test</h2>
+                <h3 class="type">Type:Fire</h3>
             </div>
-        </div>      
+            </div>
+        </div> 
     </template>
 
 
