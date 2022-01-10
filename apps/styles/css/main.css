@@ -1,3 +1,4 @@
+@import url("http://fonts.cdnfonts.com/css/pokemon-solid");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -16,12 +17,12 @@ body .clickable {
 header {
   text-align: center;
   font-size: 2rem;
-  font-family: 'Poppins',sans-serif;
 }
 
 header h2 {
   margin: 0;
-  margin-top: 1rem;
+  line-height: 5rem;
+  font-family: 'Pokemon Solid',sans-serif;
 }
 
 header #searchbar {
@@ -43,6 +44,7 @@ header #btn {
   font-size: 1rem;
   border: none;
   color: white;
+  margin: .5rem;
 }
 
 .container {
@@ -81,10 +83,6 @@ header #btn {
   font-family: 'Poppins',sans-serif;
 }
 
-.container .credentials img {
-  width: 10%;
-}
-
 .container .credentials .text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,6 +100,7 @@ header #btn {
 .container .credentials .text h2 {
   font-weight: 300;
   margin-bottom: 0rem;
+  text-align: right;
 }
 
 .container .credentials .text h3 {
@@ -116,5 +115,12 @@ header #btn {
 .container .credentials:hover {
   -webkit-transform: translateY(-0.3rem);
           transform: translateY(-0.3rem);
+}
+
+@media (max-width: 50em) {
+  .container {
+    -ms-grid-columns: 10% 80% 10%;
+        grid-template-columns: 10% 80% 10%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

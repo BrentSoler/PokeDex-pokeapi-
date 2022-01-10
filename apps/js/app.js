@@ -22,8 +22,10 @@ const colors = {
 const limit = "500";
 let search
 
+/**
+ * LOAD
+ */
 loadAll();
-
 async function loadAll(){
     let poke = await fetch("https://pokeapi.co/api/v2/pokemon?limit="+limit)
     let pokemon = await poke.json();
@@ -65,11 +67,16 @@ function loadPoke(data){
             cred[index].setAttribute("data-pokemonid",pokeName);
             cred[index].style.backgroundColor = colors[pokeType];
             index = index + 1;
+            if(index === limit-1){
+                onclick();
+            }
         })
     }
 }
 
-
+/**
+ * SEARCH
+ */
 function searchFor(){
     search = searchBar.value;
 
@@ -88,6 +95,19 @@ searchBar.addEventListener('keyup',function(){
     (event.keyCode === 13) ? searchFor() : null;
 })
 
-function clickonPoke(){
-    console.log("hi")
+/**
+ * On Click
+ */
+function onclick(){
+    for(let i = 0 ; i< cred.length; i++){
+        cred[i].addEventListener("click",()=>{
+            let pokemonName = cred[i].getAttribute("data-pokemonid");
+            
+            console.log(pokemonName);
+        })
+    }
+}
+
+function showPokemon(){
+
 }
