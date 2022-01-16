@@ -102,6 +102,191 @@ header{
 
 @media (max-width:50em) {
     .container{
-        grid-template-columns: 10% 80% 10%; 
+        grid-template-columns: 5% 90% 5%; 
+    }
+}
+
+.pokeContainer{
+    z-index: 2;
+    font-family: 'Poppins',sans-serif;
+    position: fixed;
+    @include flex;
+    inset: 0 0 40% 0;
+    justify-content: space-evenly;
+    padding:#{"min(5vh,20rem) 1em"} ;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin:  0 1rem;
+    align-items: center;
+    border-radius: 0 0rem 2rem 2rem;
+    box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
+    transform: translateY(-110%);
+    backdrop-filter: blur(1rem);
+    transition: transform 350ms ease-out;
+
+    button{
+        z-index: 3;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        border: none;
+        background-color: transparent;
+        
+        border-radius: 2rem;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    button:hover{
+        background-color: rgba(180, 178, 178, 0.397);
+    }
+
+    .nameContainer{
+        img{
+            width: 80%;
+        }
+        h1{
+            margin: 0%;
+            font-weight: $med;
+        }
+        h2{
+            font-weight: $light;
+        }
+    }
+
+    .bstatsContainer{
+        align-self: center;
+
+        h1{
+            font-weight: $med;
+            margin: 0%;
+        }
+
+        .Stats{
+            @include flex;
+
+            .stats{
+                .progressContain{
+                    --gap:.5rem;
+                    align-items:center;
+                    @include flex;
+                }
+                @include flex;
+                align-items: center;
+                justify-content: flex-end;
+                h1{
+                    margin: 0%;
+                }
+                h2{
+                    font-weight: $light;
+                }
+                progress {
+                    color: yellow;
+                    background-color: yellowgreen;
+                    border:2px solid black;
+                    border-radius: 2rem;
+                }
+                progress::-webkit-progress-bar {
+                    color: yellow;
+                    background-color: rgb(0, 0, 0);
+                    border-radius: 2rem;
+                }
+                progress::-webkit-progress-value {
+                    color: yellow;
+                    border-radius: 2rem;
+                }
+                progress::-moz-progress-bar {
+                    color: yellow;
+                    background-color: yellowgreen;
+                    border-radius: 2rem;
+                }
+            }
+        }
+    }
+}
+.pokeContainer[data-isVisible="true"]{
+    transform: translateY(0);
+}
+
+@media (max-width:55em){
+    .pokeContainer{
+        overflow: scroll;
+        flex-direction: column;
+        justify-content: flex-start;
+        inset: 0 0 0 30%;
+        padding:#{"min(5vh,20rem) 1em"} ;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin:  0 ;
+        align-items: center;
+        border-radius: 0;
+        box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
+        transform: translateX(100%);
+        --gap:.3rem;
+        
+        
+        .nameContainer{
+            @include flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width: 80%;
+            }
+            h1{
+                margin: 0%;
+                font-weight: $med;
+                font-size: 1.3rem;
+            }
+            h2{
+                margin: 0%;
+                font-size: 1rem;
+                font-weight: $light;
+            }
+        }
+        
+        .bstatsContainer{
+            align-self: flex-start;
+            // margin-top: 1.3rem;
+            h1{
+                text-align: center;
+                font-weight: $med;
+                font-size: 1rem;
+                margin: 0%;
+            }
+            
+            .Stats{
+                flex-direction: column;
+                justify-content: space-evenly;
+                --gap:0rem;
+                .stats{
+                    flex-direction: column;
+                    align-items:flex-start;
+                    --gap:0rem;
+                    .progressContain{
+                        --gap:.5rem;
+                        align-items:center;
+                        @include flex;
+                        h1{
+                            order: 0;
+                            font-size: 1.3rem;
+                            margin: 0%;
+                        }
+                        
+                        h2{
+                            order: 1;
+                            font-size: 1.2rem;
+                            margin: 0%;
+                            font-weight: $light;
+                            
+                        }
+                        progress {
+                            // order: 2;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pokeContainer[data-isVisible="true"]{
+        transform: translateX(-0%);
     }
 }

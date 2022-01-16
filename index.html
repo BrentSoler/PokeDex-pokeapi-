@@ -20,22 +20,81 @@
         <h2>PokeDex</h2>
         <div class="inputs">
         <input type="text" placeholder="Search for pokemon..." id="searchbar">
-        <button class='clickable' id ='btn' onclick="searchFor()">Search</button>
+        <!-- <button class='clickable' id ='btn' onclick="searchFor()">Search</button> -->
         </div>
     </header>
 
-    <section class="mainSec"></section>
     
-
-
+    <div class="pokeContainer" data-isVisible="true">
+        <button id=" Xbutton"class=" clickable" onclick="closeConatin()">X</button>
+        <div class="nameContainer">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="" class="pokeimg">
+            <h1 class="pokeName">Bulbasaur</h1>
+            <h2 class="weight">Weight:64</h2>
+            <h2 class="height">Height:64</h2>
+        </div>
+        <div class="bstatsContainer">
+            <h1>BASE STATS:</h1>
+            <div class="Stats">
+                <div class="row">
+                        <div class="healthStats stats">
+                            <h1>HP:</h1>
+                            <div class="progressContain">
+                                <progress class="hpProg progres" value="50"  min="0" max="100"></progress>
+                                <h2 class="hpstat">50</h2>
+                            </div>
+                        </div>
+                        <div class="attackStats stats">
+                            <h1>ATK:</h1>
+                            <div class="progressContain">
+                                <progress class="atkProg progres" value="50"  min="0" max="100"></progress>
+                                <h2 class="atkstat">50</h2>
+                            </div>
+                        </div>
+                        <div class="defenseStats stats">
+                            <h1>DFN:</h1>
+                            <div class="progressContain">
+                                <progress class="dfnProg progres" value="50"  min="0" max="100"></progress>
+                                <h2 class="dfnstat">50</h2>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="sAttackStats stats">
+                        <h1>SATK:</h1>
+                        <div class="progressContain">
+                            <progress class="satkProg progres" value="50"  min="0" max="100"></progress>
+                            <h2 class="satkstat">50</h2>
+                        </div>
+                    </div>
+                    <div class="sDefenseStats stats">
+                        <h1>SDFN:</h1>
+                        <div class="progressContain">
+                            <progress class="sdfnProg progres" value="50"  min="0" max="100"></progress>
+                            <h2 class="sdfnstat">50</h2>
+                        </div>
+                    </div>
+                    <div class="speedStats stats">
+                        <h1>SPD:</h1>
+                        <div class="progressContain">
+                            <progress class="spdProg progres" value="50"  min="0" max="100"></progress>
+                            <h2 class="spdstat">50</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="mainSec"></section>
     <template class="template">
         <div class="container">
         <div class="credentials clickable">
             <img src="" alt="" class = 'pokeimg'>
-            <div class="text">
-                <h2 class ="name">Test</h2>
-                <h3 class="type">Type:Fire</h3>
-            </div>
+                <div class="text">
+                    <h2 class ="name">Test</h2>
+                    <h3 class="type">Type:Fire</h3>
+                </div>
             </div>
         </div> 
     </template>
