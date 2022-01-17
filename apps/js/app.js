@@ -93,7 +93,7 @@ function loadPoke(data) {
  * SEARCH
  */
 searchBar.addEventListener("keyup", function (e) {
-	search = e.target.value;
+	search = searchBar.value;
 
 	const filterOut = newResults.filter(function (pokemon) {
 		return pokemon[10].includes(search);
