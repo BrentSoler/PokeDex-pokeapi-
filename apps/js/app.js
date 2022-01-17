@@ -2,6 +2,7 @@ const main = document.querySelector(".mainSec");
 const template = document.querySelector(".template");
 const cred = document.getElementsByClassName("credentials");
 const searchBar = document.querySelector("#searchbar");
+const spinner = document.querySelector(".spinner-wrapper");
 
 const colors = {
 	fire: "#FDDFDF",
@@ -19,7 +20,7 @@ const colors = {
 	fighting: "#E6E0D4",
 	normal: "#F5F5F5",
 };
-const limit = "100";
+const limit = "151";
 let offset = 0;
 let search;
 let results = [];
@@ -47,9 +48,7 @@ async function loadAll() {
 			.then((res) => res.json())
 			.then((json) => {
 				let pokeArray = Object.values(json);
-				let img = pokeArray[14];
-				let type = pokeArray[16][0];
-				newResults.push(Object.assign(results[index], img, type));
+				newResults.push(Object.assign(results[index], pokeArray));
 				index = index + 1;
 				if (index === display.length) {
 					loadPoke(newResults);
@@ -65,9 +64,9 @@ function loadPoke(data) {
 	let index = 0;
 
 	for (i = 0; i <= data.length; i++) {
-		let pokeName = data[index].name;
-		let pokeIMG = data[index].front_default;
-		let pokeType = data[index].type.name;
+		let pokeName = data[index][10];
+		let pokeIMG = data[index][14].front_default;
+		let pokeType = data[index][16][0].type.name;
 
 		const showPoke = document.importNode(template.content, true);
 
@@ -85,6 +84,7 @@ function loadPoke(data) {
 		index = index + 1;
 		if (index === data.length) {
 			onclick();
+			spinner.innerHTML = "";
 		}
 	}
 }
@@ -96,7 +96,7 @@ searchBar.addEventListener("keyup", function (e) {
 	search = e.target.value;
 
 	const filterOut = newResults.filter(function (pokemon) {
-		return pokemon.name.includes(search);
+		return pokemon[10].includes(search);
 	});
 	loadPoke(filterOut);
 });
@@ -177,7 +177,6 @@ window.addEventListener("click", (e) => {
 	const pokeContain = document.querySelector(".pokeContainer");
 	let attri = pokeContain.getAttribute("data-isVisible");
 	e.target != pokeContain && attri != "false" ? pokeContain.setAttribute("data-isVisible", false) : null;
-	console.log(newResults);
 });
 
 function closeConatin() {

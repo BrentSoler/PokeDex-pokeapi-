@@ -1,292 +1,388 @@
-$e-light:200;
-$light:300;
-$med:400;
-$bold:600;
+$e-light: 200;
+$light: 300;
+$med: 400;
+$bold: 600;
 
-@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
-              
-@mixin flex{
-    display: flex;
-    gap: var(--gap,1rem);
+@import url("http://fonts.cdnfonts.com/css/pokemon-solid");
+
+@mixin flex {
+	display: flex;
+	gap: var(--gap, 1rem);
 }
 
-*{
-    box-sizing: border-box;  
+* {
+	box-sizing: border-box;
 }
 
-body{
-    margin: 0;
-    padding: 0%;
-    background-color: blanchedalmond;
-    .clickable{
-        cursor: pointer;
-    }
+body {
+	margin: 0;
+	padding: 0%;
+	background-color: blanchedalmond;
+	.clickable {
+		cursor: pointer;
+	}
 }
 
-header{
-    text-align: center;
-    font-size: 2rem;
-    h2{
-        margin: 0;
-        line-height: 5rem;
-        font-family: 'Pokemon Solid',sans-serif;
-    }
-    #searchbar{
-        border: 2px solid black;
-        background-color: blanchedalmond;
-        padding: 0rem .5rem;
-        width: 18rem;
-        height: 3rem;
-        font-size: 1rem;
-        border-radius: 1rem;
-        font-family: 'Poppins',sans-serif;
-    }
-    #btn{
-        padding: .8rem;
-        font-family: 'Poppins',sans-serif;
-        background-color: rgb(56, 56, 56);
-        border-radius: 2rem;
-        font-size: 1rem;
-        border: none;
-        color: white;
-        margin: .5rem;
-    }
+header {
+	text-align: center;
+	font-size: 2rem;
+	h2 {
+		-webkit-text-stroke: 2px black;
+		color: blanchedalmond;
+		margin: 0;
+		line-height: 5rem;
+		font-family: "Pokemon Solid", sans-serif;
+	}
+	#searchbar {
+		border: 2px solid black;
+		background-color: blanchedalmond;
+		padding: 0rem 0.5rem;
+		width: 18rem;
+		height: 3rem;
+		font-size: 1rem;
+		border-radius: 1rem;
+		font-family: "Poppins", sans-serif;
+	}
+	#btn {
+		padding: 0.8rem;
+		font-family: "Poppins", sans-serif;
+		background-color: rgb(56, 56, 56);
+		border-radius: 2rem;
+		font-size: 1rem;
+		border: none;
+		color: white;
+		margin: 0.5rem;
+	}
 }
 
+.container {
+	display: grid;
+	grid-template-areas:
+		". . ."
+		". d ."
+		". . .";
+	grid-template-columns: 20% 60% 20%;
+	grid-template-rows: 10px 1fr 10px;
+	.credentials {
+		background-color: rgb(255, 255, 255);
+		padding: 0.5rem 1rem;
+		border-radius: 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+		box-shadow: 0rem 0.5rem 0.5rem 0.1rem rgba(158, 157, 157, 0.555);
+		@include flex;
+		grid-area: d;
+		transition: transform 250ms ease-out;
+		font-family: "Poppins", sans-serif;
 
-.container{
-    display: grid;
-    grid-template-areas: 
-    '. . .'
-    '. d .'
-    '. . .';
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 10px 1fr 10px;
-    .credentials{
-        background-color: rgb(255, 255, 255);
-        padding: .5rem 1rem;
-        border-radius: 1.5rem;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
-        @include flex;
-        grid-area: d;
-        transition:transform 250ms ease-out;
-        font-family: 'Poppins',sans-serif;
+		.text {
+			@include flex;
+			flex-direction: column;
+			line-height: 0.8rem;
+			align-self: center;
 
-        .text{
-            @include flex;
-            flex-direction: column;
-            line-height: .8rem;
-            align-self: center;
-
-            h2{
-                font-weight: $light;
-                margin-bottom: 0rem;
-                text-align: right;
-            }
-            h3{ 
-                text-align: right;
-                font-size: 1rem;
-                justify-self: center;
-                font-weight: $light;
-                margin-top: 0rem;
-            }
-        }
-        
-    }
-    .credentials:hover{
-        transform:translateY(-.3rem);
-    }
+			h2 {
+				font-weight: $light;
+				margin-bottom: 0rem;
+				text-align: right;
+			}
+			h3 {
+				text-align: right;
+				font-size: 1rem;
+				justify-self: center;
+				font-weight: $light;
+				margin-top: 0rem;
+			}
+		}
+	}
+	.credentials:hover {
+		transform: translateY(-0.3rem);
+	}
 }
 
-@media (max-width:50em) {
-    .container{
-        grid-template-columns: 5% 90% 5%; 
-    }
+@media (max-width: 50em) {
+	.container {
+		grid-template-columns: 5% 90% 5%;
+	}
 }
 
-.pokeContainer{
-    z-index: 2;
-    font-family: 'Poppins',sans-serif;
-    position: fixed;
-    @include flex;
-    inset: 0 0 40% 0;
-    justify-content: space-evenly;
-    padding:#{"min(5vh,20rem) 1em"} ;
-    background-color: rgba(255, 255, 255, 0.5);
-    margin:  0 1rem;
-    align-items: center;
-    border-radius: 0 0rem 2rem 2rem;
-    box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
-    transform: translateY(-110%);
-    backdrop-filter: blur(1rem);
-    transition: transform 350ms ease-out;
+.pokeContainer {
+	z-index: 2;
+	font-family: "Poppins", sans-serif;
+	position: fixed;
+	@include flex;
+	inset: 0 0 40% 0;
+	justify-content: space-evenly;
+	padding: #{"min(5vh,20rem) 1em"};
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 0 1rem;
+	align-items: center;
+	border-radius: 0 0rem 2rem 2rem;
+	box-shadow: 0rem 0.5rem 0.5rem 0.1rem rgba(158, 157, 157, 0.555);
+	transform: translateY(-110%);
+	backdrop-filter: blur(1rem);
+	transition: transform 350ms ease-out;
 
-    button{
-        z-index: 3;
-        font-size: 1.5rem;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        border: none;
-        background-color: transparent;
-        
-        border-radius: 2rem;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    button:hover{
-        background-color: rgba(180, 178, 178, 0.397);
-    }
+	button {
+		z-index: 3;
+		font-size: 1.5rem;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		border: none;
+		background-color: transparent;
 
-    .nameContainer{
-        img{
-            width: 80%;
-        }
-        h1{
-            margin: 0%;
-            font-weight: $med;
-        }
-        h2{
-            font-weight: $light;
-        }
-    }
+		border-radius: 2rem;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	button:hover {
+		background-color: rgba(180, 178, 178, 0.397);
+	}
 
-    .bstatsContainer{
-        align-self: center;
+	.nameContainer {
+		img {
+			width: 80%;
+		}
+		h1 {
+			margin: 0%;
+			font-weight: $med;
+		}
+		h2 {
+			font-weight: $light;
+		}
+	}
 
-        h1{
-            font-weight: $med;
-            margin: 0%;
-        }
+	.bstatsContainer {
+		align-self: center;
 
-        .Stats{
-            @include flex;
+		h1 {
+			font-weight: $med;
+			margin: 0%;
+		}
 
-            .stats{
-                .progressContain{
-                    --gap:.5rem;
-                    align-items:center;
-                    @include flex;
-                }
-                @include flex;
-                align-items: center;
-                justify-content: flex-end;
-                h1{
-                    margin: 0%;
-                }
-                h2{
-                    font-weight: $light;
-                }
-                progress {
-                    color: yellow;
-                    background-color: yellowgreen;
-                    border:2px solid black;
-                    border-radius: 2rem;
-                }
-                progress::-webkit-progress-bar {
-                    color: yellow;
-                    background-color: rgb(0, 0, 0);
-                    border-radius: 2rem;
-                }
-                progress::-webkit-progress-value {
-                    color: yellow;
-                    border-radius: 2rem;
-                }
-                progress::-moz-progress-bar {
-                    color: yellow;
-                    background-color: yellowgreen;
-                    border-radius: 2rem;
-                }
-            }
-        }
-    }
+		.Stats {
+			@include flex;
+
+			.stats {
+				.progressContain {
+					--gap: 0.5rem;
+					align-items: center;
+					@include flex;
+				}
+				@include flex;
+				align-items: center;
+				justify-content: flex-end;
+				h1 {
+					margin: 0%;
+				}
+				h2 {
+					font-weight: $light;
+				}
+				progress {
+					color: yellow;
+					background-color: yellowgreen;
+					border: 2px solid black;
+					border-radius: 2rem;
+				}
+				progress::-webkit-progress-bar {
+					color: yellow;
+					background-color: rgb(0, 0, 0);
+					border-radius: 2rem;
+				}
+				progress::-webkit-progress-value {
+					color: yellow;
+					border-radius: 2rem;
+				}
+				progress::-moz-progress-bar {
+					color: yellow;
+					background-color: yellowgreen;
+					border-radius: 2rem;
+				}
+			}
+		}
+	}
 }
-.pokeContainer[data-isVisible="true"]{
-    transform: translateY(0);
+.pokeContainer[data-isVisible="true"] {
+	transform: translateY(0);
 }
 
-@media (max-width:55em){
-    .pokeContainer{
-        overflow: scroll;
-        flex-direction: column;
-        justify-content: flex-start;
-        inset: 0 0 0 30%;
-        padding:#{"min(5vh,20rem) 1em"} ;
-        background-color: rgba(255, 255, 255, 0.5);
-        margin:  0 ;
-        align-items: center;
-        border-radius: 0;
-        box-shadow: 0rem .5rem .5rem .1rem rgba(158, 157, 157, 0.555);
-        transform: translateX(100%);
-        --gap:.3rem;
-        
-        
-        .nameContainer{
-            @include flex;
-            flex-direction: column;
-            align-items: center;
-            img{
-                width: 80%;
-            }
-            h1{
-                margin: 0%;
-                font-weight: $med;
-                font-size: 1.3rem;
-            }
-            h2{
-                margin: 0%;
-                font-size: 1rem;
-                font-weight: $light;
-            }
-        }
-        
-        .bstatsContainer{
-            align-self: flex-start;
-            // margin-top: 1.3rem;
-            h1{
-                text-align: center;
-                font-weight: $med;
-                font-size: 1rem;
-                margin: 0%;
-            }
-            
-            .Stats{
-                flex-direction: column;
-                justify-content: space-evenly;
-                --gap:0rem;
-                .stats{
-                    flex-direction: column;
-                    align-items:flex-start;
-                    --gap:0rem;
-                    .progressContain{
-                        --gap:.5rem;
-                        align-items:center;
-                        @include flex;
-                        h1{
-                            order: 0;
-                            font-size: 1.3rem;
-                            margin: 0%;
-                        }
-                        
-                        h2{
-                            order: 1;
-                            font-size: 1.2rem;
-                            margin: 0%;
-                            font-weight: $light;
-                            
-                        }
-                        progress {
-                            // order: 2;
-                            margin: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .pokeContainer[data-isVisible="true"]{
-        transform: translateX(-0%);
-    }
+@media (max-width: 55em) {
+	.pokeContainer {
+		overflow: scroll;
+		flex-direction: column;
+		justify-content: flex-start;
+		inset: 0 0 0 30%;
+		padding: #{"min(5vh,20rem) 1em"};
+		background-color: rgba(255, 255, 255, 0.5);
+		margin: 0;
+		align-items: center;
+		border-radius: 0;
+		box-shadow: 0rem 0.5rem 0.5rem 0.1rem rgba(158, 157, 157, 0.555);
+		transform: translateX(100%);
+		--gap: 0.3rem;
+
+		.nameContainer {
+			@include flex;
+			flex-direction: column;
+			align-items: center;
+			img {
+				width: 80%;
+			}
+			h1 {
+				margin: 0%;
+				font-weight: $med;
+				font-size: 1.3rem;
+			}
+			h2 {
+				margin: 0%;
+				font-size: 1rem;
+				font-weight: $light;
+			}
+		}
+
+		.bstatsContainer {
+			align-self: flex-start;
+			// margin-top: 1.3rem;
+			h1 {
+				text-align: center;
+				font-weight: $med;
+				font-size: 1rem;
+				margin: 0%;
+				justify-self: center;
+			}
+
+			.Stats {
+				flex-direction: column;
+				justify-content: space-evenly;
+				--gap: 0rem;
+				.stats {
+					flex-direction: column;
+					align-items: flex-start;
+					--gap: 0rem;
+					.progressContain {
+						--gap: 0.5rem;
+						align-items: center;
+						@include flex;
+						h1 {
+							order: 0;
+							font-size: 1.3rem;
+							margin: 0%;
+						}
+
+						h2 {
+							order: 1;
+							font-size: 1.2rem;
+							margin: 0%;
+							font-weight: $light;
+						}
+						progress {
+							// order: 2;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.pokeContainer[data-isVisible="true"] {
+		transform: translateX(-0%);
+	}
+}
+@media (max-width: 21em) {
+	.container {
+		.text {
+			h2 {
+				font-size: 1.3rem;
+			}
+			h3 {
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+
+.spinner-wrapper1,
+.spinner-wrapper {
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	@include flex;
+	justify-content: center;
+	align-items: center;
+
+	.lds-grid {
+		display: inline-block;
+		position: relative;
+		width: 80px;
+		height: 80px;
+	}
+	.lds-grid div {
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: rgb(202, 187, 165);
+		animation: lds-grid 1.2s linear infinite;
+	}
+	.lds-grid div:nth-child(1) {
+		top: 8px;
+		left: 8px;
+		animation-delay: 0s;
+	}
+	.lds-grid div:nth-child(2) {
+		top: 8px;
+		left: 32px;
+		animation-delay: -0.4s;
+	}
+	.lds-grid div:nth-child(3) {
+		top: 8px;
+		left: 56px;
+		animation-delay: -0.8s;
+	}
+	.lds-grid div:nth-child(4) {
+		top: 32px;
+		left: 8px;
+		animation-delay: -0.4s;
+	}
+	.lds-grid div:nth-child(5) {
+		top: 32px;
+		left: 32px;
+		animation-delay: -0.8s;
+	}
+	.lds-grid div:nth-child(6) {
+		top: 32px;
+		left: 56px;
+		animation-delay: -1.2s;
+	}
+	.lds-grid div:nth-child(7) {
+		top: 56px;
+		left: 8px;
+		animation-delay: -0.8s;
+	}
+	.lds-grid div:nth-child(8) {
+		top: 56px;
+		left: 32px;
+		animation-delay: -1.2s;
+	}
+	.lds-grid div:nth-child(9) {
+		top: 56px;
+		left: 56px;
+		animation-delay: -1.6s;
+	}
+	@keyframes lds-grid {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+}
+.spinner-wrapper1 {
+	z-index: 1;
 }

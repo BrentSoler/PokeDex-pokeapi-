@@ -20,37 +20,39 @@ header {
 }
 
 header h2 {
+  -webkit-text-stroke: 2px black;
+  color: blanchedalmond;
   margin: 0;
   line-height: 5rem;
-  font-family: 'Pokemon Solid',sans-serif;
+  font-family: "Pokemon Solid", sans-serif;
 }
 
 header #searchbar {
   border: 2px solid black;
   background-color: blanchedalmond;
-  padding: 0rem .5rem;
+  padding: 0rem 0.5rem;
   width: 18rem;
   height: 3rem;
   font-size: 1rem;
   border-radius: 1rem;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header #btn {
-  padding: .8rem;
-  font-family: 'Poppins',sans-serif;
+  padding: 0.8rem;
+  font-family: "Poppins", sans-serif;
   background-color: #383838;
   border-radius: 2rem;
   font-size: 1rem;
   border: none;
   color: white;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .container {
   display: -ms-grid;
   display: grid;
-      grid-template-areas: '. . .' '. d .' '. . .';
+      grid-template-areas: ". . ." ". d ." ". . .";
   -ms-grid-columns: 20% 60% 20%;
       grid-template-columns: 20% 60% 20%;
   -ms-grid-rows: 10px 1fr 10px;
@@ -59,7 +61,7 @@ header #btn {
 
 .container .credentials {
   background-color: white;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 1.5rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -80,7 +82,7 @@ header #btn {
   transition: -webkit-transform 250ms ease-out;
   transition: transform 250ms ease-out;
   transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .container .credentials .text {
@@ -92,7 +94,7 @@ header #btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  line-height: .8rem;
+  line-height: 0.8rem;
   -ms-flex-item-align: center;
       align-self: center;
 }
@@ -126,7 +128,7 @@ header #btn {
 
 .pokeContainer {
   z-index: 2;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,7 +219,7 @@ header #btn {
 }
 
 .pokeContainer .bstatsContainer .Stats .stats .progressContain {
-  --gap:.5rem;
+  --gap: 0.5rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -286,7 +288,7 @@ header #btn {
             box-shadow: 0rem 0.5rem 0.5rem 0.1rem rgba(158, 157, 157, 0.555);
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
-    --gap:.3rem;
+    --gap: 0.3rem;
   }
   .pokeContainer .nameContainer {
     display: -webkit-box;
@@ -323,6 +325,8 @@ header #btn {
     font-weight: 400;
     font-size: 1rem;
     margin: 0%;
+    -ms-grid-column-align: center;
+        justify-self: center;
   }
   .pokeContainer .bstatsContainer .Stats {
     -webkit-box-orient: vertical;
@@ -332,7 +336,7 @@ header #btn {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
-    --gap:0rem;
+    --gap: 0rem;
   }
   .pokeContainer .bstatsContainer .Stats .stats {
     -webkit-box-orient: vertical;
@@ -342,10 +346,10 @@ header #btn {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    --gap:0rem;
+    --gap: 0rem;
   }
   .pokeContainer .bstatsContainer .Stats .stats .progressContain {
-    --gap:.5rem;
+    --gap: 0.5rem;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -376,5 +380,149 @@ header #btn {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
+}
+
+@media (max-width: 21em) {
+  .container .text h2 {
+    font-size: 1.3rem;
+  }
+  .container .text h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.spinner-wrapper1,
+.spinner-wrapper {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap, 1rem);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.spinner-wrapper1 .lds-grid,
+.spinner-wrapper .lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-wrapper1 .lds-grid div,
+.spinner-wrapper .lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #cabba5;
+  -webkit-animation: lds-grid 1.2s linear infinite;
+          animation: lds-grid 1.2s linear infinite;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(1),
+.spinner-wrapper .lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(2),
+.spinner-wrapper .lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(3),
+.spinner-wrapper .lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(4),
+.spinner-wrapper .lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  -webkit-animation-delay: -0.4s;
+          animation-delay: -0.4s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(5),
+.spinner-wrapper .lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(6),
+.spinner-wrapper .lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  -webkit-animation-delay: -1.2s;
+          animation-delay: -1.2s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(7),
+.spinner-wrapper .lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(8),
+.spinner-wrapper .lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  -webkit-animation-delay: -1.2s;
+          animation-delay: -1.2s;
+}
+
+.spinner-wrapper1 .lds-grid div:nth-child(9),
+.spinner-wrapper .lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  -webkit-animation-delay: -1.6s;
+          animation-delay: -1.6s;
+}
+
+@-webkit-keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes lds-grid {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.spinner-wrapper1 {
+  z-index: 1;
 }
 /*# sourceMappingURL=main.css.map */
