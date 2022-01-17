@@ -93,10 +93,10 @@ function loadPoke(data) {
  * SEARCH
  */
 searchBar.addEventListener("keyup", function (e) {
-	search = searchBar.value;
+	search = e.target.value.toLowerCase();
 
 	const filterOut = newResults.filter(function (pokemon) {
-		return pokemon[10].includes(search);
+		return pokemon[10].toLowerCase().includes(search);
 	});
 	loadPoke(filterOut);
 });
